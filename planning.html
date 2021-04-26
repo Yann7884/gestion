@@ -61,19 +61,30 @@
                 ]
             })
 
-            const p = document.querySelector('.event-desc')
+           
+            buttonManager()
+            detectDayChange()
 
-            if(p){
-                const button = document.createElement('button')
-                button.textContent ='Modifier'
-                //button.classList.add('')
-                p.parentElement.appendChild(button)
-
-
-                button.addEventListener('click' ,function(){})
-            }
+            
         })
+        function detectDayChange(){
 
+            document.querySelectorAll('.day').forEach((day)=>{
+                day.addEventListener('click' ,()=>{
+                    buttonManager()
+                })
+            })
+        }
+        function buttonManager(){
+            const p = document.querySelectorAll('.event-desc')
+            console.log('p', p)
+                //button.classList.add('')
+                for (let e of p){
+                    const button = document.createElement('button')
+                    button.textContent ='Modifier'
+                    e.after(button)
+                }
+        }
       
     </script>
 </body>
